@@ -1,6 +1,8 @@
 public class FizzBuzz {
 
     func create(_ array: [Int]) -> String {
-        return ""
+        array
+            .map { String($0) }
+            .joined(separator: "\n")
     }
 }
