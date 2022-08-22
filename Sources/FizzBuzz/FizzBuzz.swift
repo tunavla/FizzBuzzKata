@@ -9,6 +9,7 @@ public class FizzBuzz {
             .map { number in
                 var result = shouldBeFizz(number) ? Constants.fizz : String(number)
                 result = shouldBeBuzz(number) ? Constants.buzz : result
+                result = number % 15 == 0 ? "FizzBuzz" : result
                 return result
             }
             .joined(separator: Constants.separator)
