@@ -14,6 +14,10 @@ final class FizzBuzzTests: XCTestCase {
     }
 
     func test_setNumbers_getStringWithNEwLineSeparator() {
-        XCTAssertEqual(sut.create([1,2,3]), "1\n2\n3")
+        XCTAssertEqual(sut.create([1,2,4]), "1\n2\n4")
+    }
+
+    func test_setNumbers_replaceNumberDivisibleByWithFizz() {
+        XCTAssertEqual(sut.create([1,2,3]), "1\n2\nFizz")
     }
 }
