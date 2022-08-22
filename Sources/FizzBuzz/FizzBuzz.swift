@@ -17,7 +17,7 @@ public class FizzBuzz {
     }
 
     private func replaceWithFizz(_ number: Int) -> String? {
-        number % 3 == 0 ? Constants.fizz : nil
+        number % 3 == 0  || numberOfDigits(in: number) % 3 == 0 ? Constants.fizz : nil
     }
 
     private func replaceWithBuzz(_ number: Int) -> String? {
@@ -26,5 +26,13 @@ public class FizzBuzz {
 
     private func replaceWithFizzBuzz(_ number: Int) -> String? {
         number % 15 == 0 ? Constants.fizzBuzz : nil
+    }
+
+    private func numberOfDigits(in number: Int) -> Int {
+        if number < 10 && number >= 0 || number > -10 && number < 0 {
+            return 1
+        } else {
+            return 1 + numberOfDigits(in: number/10)
+        }
     }
 }
