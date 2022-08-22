@@ -2,24 +2,29 @@ public class FizzBuzz {
     enum Constants {
         static let fizz = "Fizz"
         static let buzz = "Buzz"
+        static let fizzBuzz = "FizzBuzz"
         static let separator = "\n"
     }
     func create(_ array: [Int]) -> String {
         array
-            .map { number in
-                var result = shouldBeFizz(number) ? Constants.fizz : String(number)
-                result = shouldBeBuzz(number) ? Constants.buzz : result
-                result = number % 15 == 0 ? "FizzBuzz" : result
-                return result
+            .map {
+                replaceWithFizzBuzz($0)
+                ?? replaceWithBuzz($0)
+                ?? replaceWithFizz($0)
+                ?? String($0)
             }
             .joined(separator: Constants.separator)
     }
 
-    private func shouldBeFizz(_ number: Int) -> Bool {
-        number % 3 == 0
+    private func replaceWithFizz(_ number: Int) -> String? {
+        number % 3 == 0 ? Constants.fizz : nil
     }
 
-    private func shouldBeBuzz(_ number: Int) -> Bool {
-        number % 5 == 0
+    private func replaceWithBuzz(_ number: Int) -> String? {
+        number % 5 == 0 ? Constants.buzz : nil
+    }
+
+    private func replaceWithFizzBuzz(_ number: Int) -> String? {
+        number % 15 == 0 ? Constants.fizzBuzz : nil
     }
 }
