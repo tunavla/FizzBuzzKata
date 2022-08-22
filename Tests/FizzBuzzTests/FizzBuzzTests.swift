@@ -12,4 +12,8 @@ final class FizzBuzzTests: XCTestCase {
     func test_setEmptyArray_getEmptyString() {
         XCTAssertEqual(sut.create([]), "")
     }
+
+    func test_setNumbers_getStringWithNEwLineSeparator() {
+        XCTAssertEqual(sut.create([1,2,3]), "1/n2/n3")
+    }
 }
