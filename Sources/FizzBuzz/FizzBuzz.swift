@@ -1,4 +1,6 @@
-public struct FizzBuzz {
-    public init() {
+public class FizzBuzz {
+
+    func create(_ array: [Int]) -> String {
+        return ""
     }
 }
