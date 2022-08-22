@@ -5,7 +5,11 @@ public class FizzBuzz {
     }
     func create(_ array: [Int]) -> String {
         array
-            .map { shouldBeFizz($0) ? Constants.fizz : String($0) }
+            .map { number in
+                var result = shouldBeFizz(number) ? Constants.fizz : String(number)
+                result = number % 5 == 0 ? "Buzz" : result
+                return result
+            }
             .joined(separator: Constants.separator)
     }
 
