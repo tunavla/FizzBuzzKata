@@ -17,22 +17,30 @@ public class FizzBuzz {
     }
 
     private func replaceWithFizz(_ number: Int) -> String? {
-        number % 3 == 0  || numberOfDigits(in: number) % 3 == 0 ? Constants.fizz : nil
+        replace(number, by: 3, to: Constants.fizz)
     }
 
     private func replaceWithBuzz(_ number: Int) -> String? {
-        number % 5 == 0 ? Constants.buzz : nil
+        replace(number, by: 5, to: Constants.buzz)
     }
 
     private func replaceWithFizzBuzz(_ number: Int) -> String? {
-        number % 15 == 0 ? Constants.fizzBuzz : nil
+        replace(number, by: 15, to: Constants.fizzBuzz)
+    }
+
+    private func replace(_ number: Int, by divider: Int, to value: String) -> String? {
+        let shouldReplace =
+        number.isDivided(by: divider)
+        || numberOfDigits(in: number).isDivided(by: divider)
+        return shouldReplace ? value : nil
     }
 
     private func numberOfDigits(in number: Int) -> Int {
-        if number < 10 && number >= 0 || number > -10 && number < 0 {
-            return 1
-        } else {
-            return 1 + numberOfDigits(in: number/10)
-        }
+        number < 10 && number >= 0 ? 1 : 1 + numberOfDigits(in: number/10)
+    }
+}
+private extension Int {
+    func isDivided(by num: Int) -> Bool {
+        self % num == 0
     }
 }

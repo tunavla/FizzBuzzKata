@@ -39,4 +39,25 @@ final class FizzBuzzTests: XCTestCase {
         XCTAssertEqual(result, expectedResult)
     }
 
+    func test_setArrayWith5DigitNumber_replaceDigitCountDiv5WithBuzz() {
+        let input = [1, 22, 133, 4546, 54321]
+        let expectedResult = "1\n22\nFizz\n4546\nBuzz"
+        let result = sut.create(input)
+        XCTAssertEqual(result, expectedResult)
+    }
+
+    func test_setArrayWith15DigitNumber_replaceDigitCountDiv15WithFizzBuzz() {
+        let input = [1, 22, 133, 4546, 54321, 1004567, 111111111111111]
+        let expectedResult = "1\n22\nFizz\n4546\nBuzz\n1004567\nFizzBuzz"
+        let result = sut.create(input)
+        XCTAssertEqual(result, expectedResult)
+    }
+
+    func test_setAllCasesNumber_getFiss_Buzz_FizzBuzz_Fiss_Buzz_FizzBuzz() {
+        let input = [312, 520, 225, 146, 10111, 101010101010101]
+        let expectedResult = "Fizz\nBuzz\nFizzBuzz\nFizz\nBuzz\nFizzBuzz"
+        let result = sut.create(input)
+        XCTAssertEqual(result, expectedResult)
+    }
+
 }
